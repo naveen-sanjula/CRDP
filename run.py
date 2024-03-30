@@ -18,10 +18,9 @@ class CRDSetup:
         os.system("apt update")
         self.installCRD()
         self.installDesktopEnvironment()
-        self.changewall()
         self.installGoogleChrome()
         self.installTelegram()
-        self.installQbit()
+        self.installArchiveManager()
         self.finish(user)
 
     @staticmethod
@@ -53,13 +52,11 @@ class CRDSetup:
         subprocess.run(["apt", "install", "--assume-yes", "telegram-desktop"])
         print("Telegram Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
-
     @staticmethod
-    def installQbit():
-        subprocess.run(["sudo", "apt", "update"])
-        subprocess.run(["sudo", "apt", "install", "-y", "qbittorrent"])
-        print("Qbittorrent Installed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-
+    def installArchiveManager():
+        subprocess.run(["apt", "install", "--assume-yes", "file-roller"])
+        print("Archive Manager Installed!")
+        
     @staticmethod
     def finish(user):
         if Autostart:
